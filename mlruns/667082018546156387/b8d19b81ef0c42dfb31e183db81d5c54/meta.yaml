@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/667082018546156387/b8d19b81ef0c42dfb31e183db81d5c54/artifacts
+end_time: 1750394974189
+entry_point_name: ''
+experiment_id: '667082018546156387'
+lifecycle_stage: active
+run_id: b8d19b81ef0c42dfb31e183db81d5c54
+run_name: exultant-cow-487
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750394972234
+status: 3
+tags: []
+user_id: pramod

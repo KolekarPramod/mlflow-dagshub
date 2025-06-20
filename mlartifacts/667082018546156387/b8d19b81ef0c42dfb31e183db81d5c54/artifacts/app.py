@@ -8,11 +8,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 import dagshub
+# dagshub.init(repo_owner='campusx-official', repo_name='mlflow-dagshub-demo', mlflow=True)
 
-dagshub.init(repo_owner='pkolekar940', repo_name='mlflow-dagshub', mlflow=True)
-
-
-mlflow.set_tracking_uri("https://dagshub.com/pkolekar940/mlflow-dagshub.mlflow")  # Set your MLflow tracking URI
+mlflow.set_tracking_uri("http://127.0.0.1:5000")  # Set your MLflow tracking URI
 
 # Load the iris dataset
 iris = load_iris()
@@ -23,7 +21,7 @@ y = iris.target
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Define the parameters for the Random Forest model
-max_depth = 10
+max_depth = 1
 
 # apply mlflow
 
