@@ -2,7 +2,8 @@ import mlflow
 import joblib
 import mlflow.sklearn
 from sklearn.datasets import load_iris
-from sklearn.tree import DecisionTreeClassifier
+# from sklearn.tree import DecisionTreeClassifier
+from sklearn.emsemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, confusion_matrix
 import matplotlib.pyplot as plt
@@ -29,11 +30,13 @@ max_depth = 15
 with mlflow.start_run():
 
     # Train model
-    dt = DecisionTreeClassifier(max_depth=max_depth)
-    dt.fit(X_train, y_train)
+    # dt = DecisionTreeClassifier(max_depth=max_depth)
+    # dt.fit(X_train, y_train)
+    rf = RandomForestClassifier(max_depth=max_depth,  random_state=42)
+    rf.fit(X_train, y_train)
 
     # Predict and evaluate
-    y_pred = dt.predict(X_test)
+    y_pred = rf.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
 
     # Log metrics and params
@@ -52,7 +55,7 @@ with mlflow.start_run():
     mlflow.log_artifact("confusion_matrix.png")
 
     # Save model using joblib instead of triggering registry
-    joblib.dump(dt, "decision_tree_model.pkl")
+    joblib.dump(rf, "decision_tree_model.pkl")
     mlflow.log_artifact("decision_tree_model.pkl")
 
     # Log current script if __file__ is available
